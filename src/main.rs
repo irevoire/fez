@@ -10,14 +10,14 @@ impl A {
     pub fn new() -> Self {
         Self {
             cubes: vec![
-                vec!['a', 'm', 'g', 's'],
-                vec!['t', 'h', 'b', 'n'],
-                vec!['e', 'z', 'k', 'x', 'q'],
-                vec!['a', 'm', 'g', 's'],
-                vec!['t', 'h', 'b', 'n'],
-                vec!['v', 'u', 'c', 'o'],
-                vec!['t', 'h', 'b', 'n'],
-                vec!['r', 'f', 'y', 'l'],
+                vec!['a', 'g', 'm', 's'],
+                vec!['b', 'h', 'n', 't'],
+                vec!['e', 'k', 'q', 'x', 'z'],
+                vec!['a', 'g', 'm', 's'],
+                vec!['b', 'h', 'n', 't'],
+                vec!['c', 'i', 'o', 'u', 'v'],
+                vec!['b', 'h', 'n', 't'],
+                vec!['f', 'l', 'r', 'y'],
             ],
         }
     }
@@ -46,8 +46,9 @@ fn main() {
     let reader = BufReader::new(io::stdin());
     for line in reader.lines() {
         let line = line.unwrap();
+        let word: String = line.to_lowercase().chars().filter(|c| c.is_alphabetic()).collect();
 
-        if a.check(&line) {
+        if a.check(&word) {
             println!("{}", line);
         }
     }
